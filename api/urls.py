@@ -1,6 +1,7 @@
 # myproject/urls.py (app-level)
 from django.urls import path
-from .views import AddToCart, CategoryListCreateView, Checkout, MyCartView, OrderItemListCreateView, OrderListCreateView, ProductListCreateView, RemoveFromCart, register_user
+from api.views import Checkout, RemoveFromCart
+from .views import AddToCart, CategoryListCreateView, MyCartView, OrderItemListCreateView, OrderListCreateView, ProductListCreateView, register_user
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
@@ -34,4 +35,6 @@ urlpatterns = [
 
     # Checkout
     path('checkout/', Checkout.as_view(), name='checkout'),
+
+
 ]
