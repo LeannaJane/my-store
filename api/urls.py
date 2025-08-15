@@ -1,11 +1,16 @@
+# myproject/urls.py (app-level)
 from django.urls import path
-from .views import (
-    CategoryListCreateView, Checkout, MyCartView, ProductListCreateView,
-    OrderListCreateView, OrderItemListCreateView,
-    AddToCart, RemoveFromCart
-)
+from .views import AddToCart, CategoryListCreateView, Checkout, MyCartView, OrderItemListCreateView, OrderListCreateView, ProductListCreateView, RemoveFromCart, register_user
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
+    # Login
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # Register
+    path('register/', register_user, name='register'),
+
     # Categories
     path('categories/', CategoryListCreateView.as_view(), name='category-list-create'),
 
@@ -28,6 +33,5 @@ urlpatterns = [
     path('remove-from-cart/<int:product_id>/', RemoveFromCart.as_view(), name='remove-from-cart'),
 
     # Checkout
-    path('checkout/', Checkout.as_view(), name='checkout')
-
+    path('checkout/', Checkout.as_view(), name='checkout'),
 ]

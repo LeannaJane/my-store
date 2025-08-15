@@ -21,11 +21,10 @@ from django.http import HttpResponse
 from myproject.views import api_root
 
 def home(request):
-    return HttpResponse("Welcome to my Shopping penis API")
+    return HttpResponse("Welcome to my Shopping API")
 
 urlpatterns = [
     path('', api_root),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    
 ]
