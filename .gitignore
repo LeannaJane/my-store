@@ -5,6 +5,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyc
+/backend
+/backend/venv/pyvenv.cfg
 
 # Environments
 .env
@@ -16,7 +18,7 @@ db.sqlite3
 *.log
 
 # Node
-/node_modules
+/frontend/node_modules
 /.pnp
 .pnp.js
 /build
