@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import (
-    CategoryListCreateView, Checkout, MyCartView, ProductListCreateView,
+    CategoryListCreateView, Checkout, ProductListCreateView,
     OrderListCreateView, OrderItemListCreateView,
-    AddToCart, RemoveFromCart
+    AddToCart, RemoveFromCart, MyCartView
 )
 
 urlpatterns = [
