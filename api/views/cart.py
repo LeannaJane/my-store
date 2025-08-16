@@ -3,11 +3,11 @@ from rest_framework.response import Response
 from ..models import Product, Order, OrderItem
 
 class AddToCart(APIView):
-    def post(self, request, product_id):
-        print(request.data)
+    def post(self, request):
+        quantity = request.data.quantity
+        product_id = request.data.product_id
         product = Product.objects.get(id=product_id)
-
-        # {"quantity": 2}
+        
         order = Order.objects.filter(user=request.user, completed=False).first()
 
         if order is None:
@@ -17,7 +17,7 @@ class AddToCart(APIView):
         if order_item is None:
             order_item = OrderItem.objects.create(order=order, product=product)
 
-        order_item.quantity += 1
+        order_item.quantity += quantity
         order_item.save()
         return Response({"message": f"Added {product.name} to cart"})
     
@@ -30,7 +30,8 @@ class MyCartView(APIView):
         return Response({"cart": items})
     
 class RemoveFromCart(APIView):
-    def post(self, request, product_id):
+    def post(self, request):
+        product_id = request.data.product_id
         order = Order.objects.filter(user=request.user, completed=False).first()
         if not order:
             return Response({"error": "No active cart"}, status=400)
