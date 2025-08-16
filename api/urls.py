@@ -25,13 +25,13 @@ urlpatterns = [
     path('order-items/', OrderItemListCreateView.as_view(), name='orderitem-list-create'),
 
     # Add to cart
-    path('add-to-cart/<int:product_id>/', AddToCart.as_view(), name='add-to-cart'),
+    path('add-to-cart/', AddToCart.as_view(), name='add-to-cart'),
 
     # My cart
     path('my-cart/', MyCartView.as_view(), name='my-cart'),
 
     # Remove from cart
-    path('remove-from-cart/<int:product_id>/', RemoveFromCart.as_view(), name='remove-from-cart'),
+    path('remove-from-cart/', RemoveFromCart.as_view(), name='remove-from-cart'),
 
     # Checkout
     path('checkout/', Checkout.as_view(), name='checkout'),

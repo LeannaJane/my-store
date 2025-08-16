@@ -10,9 +10,9 @@ def api_root(request):
             "Products": "/api/products/",
             "Orders": "/api/orders/",
             "Order Items": "/api/order-items/",
-            "Add to Cart": "/api/add-to-cart/<product_id>/",
+            "Add to Cart": "/api/add-to-cart/",
             "My Cart": "/api/my-cart/",
-            "Remove from Cart": "/api/remove-from-cart/<product_id>/",
+            "Remove from Cart": "/api/remove-from-cart/",
             "Checkout": "/api/checkout/",
         }
     })
